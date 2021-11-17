@@ -1,15 +1,15 @@
 import React from "react";
+import { Container, Button } from "react-bootstrap";
 
-import Header from "../../components/Header";
-import { Button } from "../../components";
+import "./styles.css";
 
 interface AuthProps {}
 
 const Auth: React.FC<AuthProps> = () => {
   return (
-    <>
-      <Button title="WAX Cloud Wallet" onClick={() => {}} />
-    </>
+    <div className="ctr">
+      <Button variant="primary btn">Sign in</Button>
+    </div>
   );
 };
 

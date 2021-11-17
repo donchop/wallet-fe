@@ -1,16 +1,32 @@
 import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
-interface HeaderProps {}
+import "./styles.css";
 
-const Header: React.FC<HeaderProps> = () => {
+interface HeaderProps {
+  leftTitle?: string;
+  centerTitle?: string;
+  isUser: boolean;
+}
 
-  const pagesList = [
-    { name: "Главная", link: "/" },
-    { name: "Программы", link: "/programs" },
-    { name: "Упражнения", link: "/exercises" },
-    { name: "Диеты", link: "/diets" },
-  ];
-  return <div>header</div>;
+const Header: React.FC<HeaderProps> = ({
+  leftTitle,
+  centerTitle,
+  isUser = false,
+}) => {
+  return (
+    <Container className="header-container">
+      <Row className="justify-content-md-flex-end header-row">
+        <Col xs={4}>{leftTitle}</Col>
+        <Col xs={4}>{centerTitle}</Col>
+        <Col xs={4} className=".btn-container header-col">
+          <Button variant="primary header-btn" size="sm">
+            {isUser ? "loggout" : "login"}
+          </Button>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default Header;
